@@ -1,72 +1,33 @@
-# Davee's Django Rest API Template
+# Permissions & Postgresql
 
-## Author: Davee Sok
+## Features Tasks and Requirements
 
-## Links & Resources
+General
 
-- [Django](https://docs.djangoproject.com/en/3.2/)
-- [Django Rest Framework](https://www.django-rest-framework.org/)
+- You have been supplied with two demos, each presenting a key new feature.
+  - blogapi-permissions demonstrates how to restrict access to portions of your APIs data.
+  - blogapi-postgres demonstrates switching over to using postgres vs sqlite
+- Your job is to merge the functionality of both demos.
+- Customize your project to use different application features/models than Blog and Post
 
-## Overview/ Motivation
+Django REST Framework
 
-work in progess....
+- Make your site a DRF powered API as you did in previous lab.
+- Adjust project's permissions so that only authenticated user's have access to API.
+- Add a custom permission so that only author of blog post can update or delete it.
+- Add ability to switch user's directly from browsable API.
 
-Starting up a Django api can be time consuming. This template is meant to get up and running fast
+Docker
 
-## Tools & Dependencies
+- NOTE Refer to demo for built out Dockerfile and docker-compose.yml examples.
+- create Dockerfile based off python:3.8-slim
+- create docker-compose.yml to run Django app as a web service.
+- enter docker-compose up --build to start your site.
+- add postgres 11 as a service
+  - Note: It is not required to include a volume so that data can persist when container is shut down.
 
-- Django
-- Django Rest Framework
-- Black
-- Docker
-- psycopg2-binary
+- Go to browsable api and confirm site properly restricts users based on their permissions.
 
-## Getting Started
+## Collaborations
 
-### 1. Create a New Secret Key by running the following command in the terminal:
-
-```iterm
-python -c 'from django.core.management.utils import get_random_secret_key; \
-            print(get_random_secret_key())'
-```
-
-If the above step doesn't work, you may have to run `poetry shell`, then `poetry install`
-
-### 2. Add new key to settings.py line 23
-
-```python
-SECRET_KEY = "django-insecure-INSERT_NEW_SECRET_KEY_HERE"
-```
-
-### 3. App folder currently named "Recipe". Replace this with your app name
-
-- These steps will change the app name and all occurences of "Recipe"
-- Use a Capital for this step: Do a global search of "Recipe" and replace all occurences with your new app name. Remember to select "Match Case" option.
-- The following steps requires a lowercase version of your app name
-  - Replace "Recipe" folder name
-  - In app.py - line 6, make sure name variable is lowercase
-  - In project/urls.py, fix urlpatterns on line 19 to use lowercase
-  - In project/settings.py check INSTALLED_APPS to make sure your app name is lowercased
-
-### 4. In terminal run the following commands:
-
-```iterm
-poetry shell
-poetry install
-python manage.py makemigrations
-python manage.py migrate
-python manage.py createsuperuser
-```
-
----
-
-#### Other Commands To Know
-
-```python
-poetry export -f requirements.txt -o requirements.txt --without-hashes
-docker-compose up
-docker-compose -d
-docker-compose down
-docker-compose logs
-docker-compose up --build
-```
+Davee Sok, Daniel Dills, Wondwosen
